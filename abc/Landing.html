@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="fp-enabled" style="overflow: hidden; height: 100%;"><head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Callbacks - fullPage.js</title>
-	<meta name="author" content="Alvaro Trigo Lopez">
-	<meta name="description" content="fullPage callback function.">
-	<meta name="keywords" content="fullpage,jquery,demo,callbac,function,event">
-	<meta name="Resource-type" content="Document">
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage callback function." />
+	<meta name="keywords"  content="fullpage,jquery,demo,callbac,function,event" />
+	<meta name="Resource-type" content="Document" />
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-	{% load staticfiles %}	
+	{% load static %}
 
-	<link href="{% static "css/examples.css" %}" rel="stylesheet" type="text/css">
-	<link href="{% static "css/jquery.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/examples.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "css/jquery.fullPage.css" %}" rel="stylesheet" type="text/css" />
 	<link href="{% static "css/landing.css" %}" rel="stylesheet" type="text/css" media="screen and (min-width:640px)">
 	<link href="{% static "css/mobile.css" %}" rel="stylesheet" type="text/css" media="screen and (max-width:639px)">
 
@@ -21,17 +23,18 @@
 		</script>
 	<![endif]-->
 
-	<script src="Landing_files/jquery_002.js"></script>
-	<script src="Landing_files/jquery-ui.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
 	<script type="text/javascript" src="{% static "js/scrolloverflow.js" %}"></script>
+
 	<script type="text/javascript" src="{% static "js/examples.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/jquery.fullPage.js" %}"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+				sectionsColor: ['#1bbc9b', '#ffffff', '#7BAABE', 'whitesmoke', '#ccddff'],
 				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
 				menu: '#menu',
 				afterLoad: function(anchorLink, index){
@@ -77,11 +80,11 @@
 	</style>
 
 </head>
-<body style="overflow: hidden; height: 100%;" class="fp-viewing-firstPage">
+<body>
 
 
 <select id="demosMenu">
-  <option selected="selected">Choose Demo</option>
+  <option selected>Choose Demo</option>
   <option id="activeSlide">Active section and slide</option>
   <option id="apple">Apple iPhone demo (animations)</option>
   <option id="autoHeight">Auto height</option>
@@ -123,39 +126,45 @@
 </select>
 
 <ul id="menu">
-	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">First slide</a></li>
-	<li data-menuanchor="secondPage" class=""><a href="#secondPage">Second slide</a></li>
+	<li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
 </ul>
 
-<div id="fullpage" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 700ms ease 0s;" class="fullpage-wrapper">
-	<div class="section  fp-section fp-table active fp-completely" id="section0" style="height: 889px; background-color: rgb(27, 188, 155);" data-anchor="firstPage"><div class="fp-tableCell" style="height: 889px;">
+<div id="fullpage">
+	<div class="section " id="section0">
 		<img id="logo" src="{% static "photo/logo.png" %}">
-		<div id="section_title">
+		<div id ="section_title">
 			<p class="section_word">내 소중한 디자인 작업물,</p>		
-			<p class="section_word">결과뿐만 아니라 <b id="section_word0"> 과정</b>까지 기록하세요.</p>
+			<p class="section_word">결과뿐만 아니라 <B> 과정</B>까지 기록하세요.</p>
 		</div>
-		<div id="ex_button">
-		<button id="ex_but" type="button" onclick="location.href=# ">무료 체험 신청하기</button>
+		<div id ="ex_button">
+		<button id="ex_but" type="button" onclick="location.href=# ">무료 체험 신청하기</a></button> 
 		</div>
-	</div></div>
-	<div class="section fp-section fp-table" id="section1" style="height: 889px; background-color: rgb(75, 191, 195);" data-anchor="secondPage"><div class="fp-tableCell" style="height: 889px;">
-		<div class="intro">
+		
+	</div>
+	<div class="section" id="section1">
+		<div id="section1_title">
+			<h1><B>포트폴리오</B> 제작 시 가장 중요한 자료관리,</h1>
+			<h1>어떻게 하고 계신가요?</h1>
+		</div>
 
-			<h1>easeOutExpo</h1>
-			<p style="display: block;">This example is working with `easeOutExpo` effect instead of the default `easeOutExpo`</p>
-			<p style="display: block;">You can see more about them <a href="http://jqueryui.com/resources/demos/effect/easing.html" target="_blank">here</a></p>
+		<div id="section1_line">
+			<hr color="black" width="25%" size="1">
 		</div>
-	</div></div>
-	<div class="section fp-section fp-table" id="section2" style="height: 889px; background-color: rgb(123, 170, 190);" data-anchor="3rdPage"><div class="fp-tableCell" style="height: 889px;">
+
+		<div id="section1_line1">
+			<hr color="black" width="1" size="100">
+		</div>
+	</div>
+	<div class="section" id="section2">
 		<div class="intro">
 			<h1>Cool uh?</h1>
 			<p>Choose the best easing effect for your site!</p>
 		</div>
-	</div></div>
+	</div>
 </div>
 
 
-
-
-</body></html>
+</body>
+</html>
