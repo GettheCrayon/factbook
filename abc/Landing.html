@@ -3,12 +3,13 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Callbacks - fullPage.js</title>
+	<title>Scroll inside sections and slides - fullPage.js</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage callback function." />
-	<meta name="keywords"  content="fullpage,jquery,demo,callbac,function,event" />
+	<meta name="description" content="fullPage full-screen backgrounds." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
 	<meta name="Resource-type" content="Document" />
-	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+	
 
 	{% load static %}
 
@@ -16,6 +17,35 @@
 	<link href="{% static "css/jquery.fullPage.css" %}" rel="stylesheet" type="text/css" />
 	<link href="{% static "css/landing.css" %}" rel="stylesheet" type="text/css" media="screen and (min-width:640px)">
 	<link href="{% static "css/mobile.css" %}" rel="stylesheet" type="text/css" media="screen and (max-width:639px)">
+	<style>
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+		padding:40px 0 0 0;
+	}
+	/*.intro p{
+		color: #fff;
+		padding:40px 0 0 0;
+	}*/
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	/*.section{
+		text-align:center;
+	}*/
+
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #fff;
+	}
+	</style>
 
 	<!--[if IE]>
 		<script type="text/javascript">
@@ -27,144 +57,95 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
 	<script type="text/javascript" src="{% static "js/scrolloverflow.js" %}"></script>
-
 	<script type="text/javascript" src="{% static "js/examples.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/jquery.fullPage.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.word-break-keep-all.js" %}"></script>	
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#ffffff', '#7BAABE', 'whitesmoke', '#ccddff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-				menu: '#menu',
-				afterLoad: function(anchorLink, index){
-
-					//section 2
-					if(index == 2){
-						//moving the image
-						$('#section1').find('img').delay(500).animate({
-							left: '0%'
-						}, 1500, 'easeOutExpo');
-
-						$('#section1').find('p').first().fadeIn(1800, function(){
-							$('#section1').find('p').last().fadeIn(1800);
-						});;
-
-					}
-
-					//section 3
-					if(anchorLink == '3rdPage'){
-						//moving the image
-						$('#section2').find('.intro').delay(500).animate({
-							left: '0%'
-						}, 1500, 'easeOutExpo');
-					}
-				}
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage'],
+				sectionsColor: ['#4A6FB1', '#f7f7f7', '#323539'],
+				scrollOverflow: true
+				
 			});
-
 		});
 	</script>
-
-	<style>
-		#section1 img{
-			left: 130%;
-			position:relative;
-		}
-		#section1 p{
-			display:none;
-		}
-		#section2 .intro{
-			left: -130%;
-			position:relative;
-		}
-	</style>
-
 </head>
 <body>
 
-
-<select id="demosMenu">
-  <option selected>Choose Demo</option>
-  <option id="activeSlide">Active section and slide</option>
-  <option id="apple">Apple iPhone demo (animations)</option>
-  <option id="autoHeight">Auto height</option>
-  <option id="autoplayVideoAndAudio">Autoplay Video and Audio</option>
-  <option id="backgrounds">Background images</option>
-  <option id="backgroundsFixed">Fixed fullscreen backgrounds</option>
-  <option id="backgroundVideo">Background video</option>
-  <option id="callbacks">Callbacks</option>
-  <option id="continuousHorizontal">Continuous horizontal</option>
-  <option id="continuousVertical">Continuous vertical</option>
-  <option id="parallax">Parallax</option>
-  <option id="css3">CSS3</option>
-  <option id="dragAndMove">Drag And Move</option>
-  <option id="easing">Easing</option>
-  <option id="fadingEffect">Fading Effect</option>
-  <option id="fixedHeaders">Fixed headers</option>
-  <option id="gradientBackgrounds">Gradient backgrounds</option>
-  <option id="interlockedSlides">Interlocked Slides</option>
-  <option id="looping">Looping</option>
-  <option id="methods">Methods</option>
-  <option id="navigationV">Vertical navigation dots</option>
-  <option id="navigationH">Horizontal navigation dots</option>
-  <option id="noAnchor">No anchor links</option>
-  <option id="normalScroll">Normal scrolling</option>
-  <option id="normalScrollElements">Normal scroll elements</option>
-  <option id="offsetSections">Offset sections</option>
-  <option id="oneSection">One single section</option>
-  <option id="resetSliders">Reset sliders</option>
-  <option id="responsiveAutoHeight">Responsive Auto Height</option>
-  <option id="responsiveHeight">Responsive Height</option>
-  <option id="responsiveWidth">Responsive Width</option>
-  <option id="responsiveSlides">Responsive Slides</option>
-  <option id="scrollBar">Scroll bar enabled</option>
-  <option id="scrollHorizontally">Scroll horizontally</option>
-  <option id="scrollOverflow">Scroll inside sections and slides</option>
-  <option id="scrollOverflowReset">ScrollOverflow Reset</option>
-  <option id="lazyLoad">Lazy load</option>
-  <option id="scrollingSpeed">Scrolling speed</option>
-</select>
-
-<ul id="menu">
-	<li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
-</ul>
-
 <div id="fullpage">
 	<div class="section " id="section0">
-		<img id="logo" src="{% static "photo/logo.png" %}">
-		<div id ="section_title">
-			<p class="section_word">내 소중한 디자인 작업물,</p>		
-			<p class="section_word">결과뿐만 아니라 <B> 과정</B>까지 기록하세요.</p>
+		<div class="intro">
+			<div id="img_logo">
+				<img id="logo" src="{% static "photo/logo.png" %}">
+			</div>
+			<div id ="section_title">
+				<p class="section_word">내 소중한 디자인 작업물,</p>		
+				<p class="section_word">결과뿐만 아니라 <B id="section_word0"> 과정</B>까지 기록하세요.</p>
+			</div>
+			<div id ="ex_button">
+				<a href="#" id="ex_but">무료 체험 신청하기</a>
+			</div>
 		</div>
-		<div id ="ex_button">
-		<button id="ex_but" type="button" onclick="location.href=# ">무료 체험 신청하기</a></button> 
-		</div>
-		
 	</div>
 	<div class="section" id="section1">
-		<div id="section1_title">
-			<h1><B>포트폴리오</B> 제작 시 가장 중요한 자료관리,</h1>
-			<h1>어떻게 하고 계신가요?</h1>
-		</div>
+	    	<div class="slide" id="slide1">
+			<div class="intro">
+				<div id="section1_title">
+					<p><B id="section_word0">포트폴리오</B> 제작 시 가장 중요한 자료관리,</p>
+					<p>어떻게 하고 계신가요?</p>
+				</div>
 
-		<div id="section1_line">
-			<hr color="black" width="25%" size="1">
-		</div>
+				<div id="vert_line">
+					<hr id="line" width="28%" size="3%" color="black" align="left">
+				</div>
+				
+				<div id="img_prof">
+					<img id="prof" src="{% static "photo/yerin.png" %}">
+					<p id="prof_name"><B id="section_word0">이예린 / 대학생</B></p>
+					<p class="prof_text">좋은 참고 이미지, URL을 수집해 놓아도 워낙 자료가 방대하다 보니 원하는 자료를 바로바로 찾지 못하는 경우가 많아요. 필요한 자료를 <B id="section_word0">쉽게 검색</B>해서 활용할 수 있었으면 좋겠어요.</p>
+				</div>
+	
+				<div id="img_prof">
+					<img id="prof" src="{% static "photo/yena.png" %}">
+					<p id="prof_name"><B id="section_word0">오예나 / 취업 준비생</B></p>
+					<p class="prof_text" id="yena_text">최근 기업에서는 단순히 결과물만 담긴 포트폴리오보다 결과물을 만들어 내기까지의 의도와 과정이 담긴 포트폴리오를 선호한다고 해요. 기업에 어필할 수 있도록 <B id="section_word0">과정이 담긴</B> 포트폴리오를 제작하고 싶어요.</p>
+				</div>
 
-		<div id="section1_line1">
-			<hr color="black" width="1" size="100">
-		</div>
+				<div id="img_prof">
+					<img id="prof" src="{% static "photo/minhee.png" %}">
+					<p id="prof_name"><B id="section_word0">오민희 / 프리랜서 디자이너</B></p>
+					<p class="prof_text" id="minhee_text">작업을 하다 보면 내가 왜 이 작업을 했지? 이 자료를 왜 수집해 놓은 거지?하는 의문이 드는 경우가 있어요. <B id="section_word0">작업 순서별</B>로 자료를 저장하고 <B id="section_word0">간단한 메모</B>를 남길 수 있으면 포트폴리오를 만들 때 편리할 것 같아요!</p>
+				</div>
+
+				<div id="second_back">
+					<img id="sec_back" src="{% static "photo/second_back.png" %}">
+				</div>
+				
+				<div id="laptop">
+					<img id="img_laptop" src="{% static "photo/laptop.png" %}">
+				</div>
+
+				<div id="section1_title2">
+					<p>이젠 MAAD로</p>
+					<p>작업물을 간편하게 관리하고</p>
+					<p><B id="section_word0">차별화된 포트폴리오</B>를 만들어보세요!</p>
+				</div>
+
+				<div id="test_button">
+					<a href="#" id="test_but">무료 체험 신청하기</a>
+				</div>
+			</div>
+		</div>		
 	</div>
 	<div class="section" id="section2">
 		<div class="intro">
-			<h1>Cool uh?</h1>
-			<p>Choose the best easing effect for your site!</p>
+			<h1>No limitations!</h1>
+			<p>Content is a priority. Even if it is so large :)</p>
 		</div>
 	</div>
 </div>
-
 
 </body>
 </html>
