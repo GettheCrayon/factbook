@@ -1,0 +1,53 @@
+/*@import url('font.css');*/
+
+#section0{
+	position:relative;
+	top:0;
+	left:0;
+	background-image:url(../photo/main.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center center;
+	width:100%
+
+}
+
+#logo{
+	position:relative;
+	top:9.26%;
+	left:200px;
+}
+
+#section_title{
+	position:relative;
+	top:26%;
+	left:195px;
+	color:#ffffff;
+	font-size:4.5em;
+	width:65.5%;
+	word-break: keep-all;
+	font-weight: 200;
+	line-height: 170%;
+}
+ 
+#section_word0{
+	font-weight: 700;
+}
+
+#ex_button{
+	position:relative;
+	top:40%;
+}
+
+
+#ex_but{
+	position: relative;
+	left:200px;
+	font-size:1.75em;
+	color:#000000;
+	background-color:#ffffff;
+	padding-top:30px;
+	padding-left:60px;
+	padding-right:60px;
+	padding-bottom:30px;
+}
