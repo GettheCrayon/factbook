@@ -75,12 +75,8 @@ class ProjectCreateView(LoginRequiredMixin,FormView):
 		elif 'cre_pro' in request.POST:
 			context={}
 			form= ProjectForms(request.POST)
-			getProject = Project.objects.filter(name = request.POST['name']).exists()
-
-			if not getProject:
-
-				if form.is_valid():
-					form.save()
+			if form.is_valid():
+				form.save()
 			project = Project.objects.all()
 			folder = Folder.objects.all()
 			that=[]

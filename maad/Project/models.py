@@ -54,6 +54,8 @@ class Project(models.Model):
 			self.slug = slugify(self.name)
 
 		super(Project, self).save(*args, **kwargs)
+	def __str__(self):
+		return self.name
 
 	def __unicode__(self):
 		return self.name
@@ -93,6 +95,9 @@ class Picture(models.Model):
 	file = models.ImageField(upload_to="pictures")
 
 	def __unicode__(self):
+		return self.file.name
+
+	def __str__(self):
 		return self.file.name
 
 	def publish(self, *args, **kwargs):
